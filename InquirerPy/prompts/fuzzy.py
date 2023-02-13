@@ -571,6 +571,7 @@ class FuzzyPrompt(BaseListPrompt):
         if task.cancelled():
             return
         self.content_control._filtered_choices = task.result()
+        self.content_control.selected_choice_index = 0
         self._application.invalidate()
 
     def _calculate_wait_time(self) -> float:
